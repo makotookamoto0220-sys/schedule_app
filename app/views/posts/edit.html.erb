@@ -1,0 +1,21 @@
+<h1>予定の編集</h1>
+
+<%= form_with model: @post do |form| %>
+<%= form.label :title,"タイトル"%>
+<%= form.text_field :title %>
+
+<%= form.label :body,"スケジュールメモ" %>
+<%= form.text_area :body %>
+
+<%= form.label :start_date,"開始日" %>
+<%= form.text_field :start_date %>
+
+<%= form.label :end_date,"終了日" %>
+<%= form.text_field :end_date %>
+
+<%= form.label :all_day,"終日" %> 
+<%= form.check_box :all_day %>
+
+<%= form.submit "更新する" %>
+
+<% end %>
