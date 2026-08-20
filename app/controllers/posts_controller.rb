@@ -10,8 +10,11 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.save
+   if @post.save
     redirect_to @post
+   else
+    render :new, status: :unprocessable_entity
+   end
   end
 
   def show
@@ -29,7 +32,7 @@ class PostsController < ApplicationController
     if @post.update(post_params)
       redirect_to @post
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
 
   end
