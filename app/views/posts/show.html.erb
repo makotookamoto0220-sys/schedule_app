@@ -1,0 +1,11 @@
+<h1>予定の詳細</h1>
+
+<p>タイトル : <%= @post.title %></p>
+<p>開始日 : <%= @post.start_date %></p>
+<p>終了日 : <%= @post.end_date %></p>
+<p>終日 : <%= @post.all_day %></p>
+<p>スケジュールメモ : <%= @post.body %></p>
+
+<%= link_to "一覧に戻る",posts_path %>
+
+
