@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
    if @post.save
-    redirect_to @post
+    redirect_to @post, notice: "予定を登録しました"
    else
     render :new, status: :unprocessable_entity
    end
@@ -30,7 +30,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
-      redirect_to @post
+      redirect_to @post, notice: "予定を更新しました"
     else
       render :edit, status: :unprocessable_entity
     end
@@ -40,7 +40,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to posts_path
+    redirect_to posts_path, notice: "予定を削除しました"
   end
 
   private

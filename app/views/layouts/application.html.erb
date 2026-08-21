@@ -16,7 +16,9 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
+  <% if flash[:notice]%>
+   <p style= "color: green;"><%= flash[:notice]%></p>
+   <% end %>
   <body>
     <%= yield %>
   </body>
