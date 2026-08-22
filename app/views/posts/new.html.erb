@@ -1,29 +1,44 @@
-<%= form_with model: @post do |form| %>
+<div class="container mt-4">
+  <h1 class="mb-3">予定の新規追加</h1>
 
-  <% if @post.errors.any? %>
-    <div style= "color: red;">
-      <ul>
-         <% @post.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+  <%= form_with model: @post do |form| %>
+
+    <% if @post.errors.any? %>
+      <div class="alert alert-danger">
+        <ul class="mb-0">
+          <% @post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
           <% end %>
-      </ul>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="mb-3">
+      <%= form.label :title, "タイトル", class: "form-label" %>
+      <%= form.text_field :title, class: "form-control" %>
     </div>
+
+    <div class="mb-3">
+      <%= form.label :body, "スケジュールメモ", class: "form-label" %>
+      <%= form.text_area :body, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :start_date, "開始日", class: "form-label" %>
+      <%= form.date_field :start_date, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :end_date, "終了日", class: "form-label" %>
+      <%= form.date_field :end_date, class: "form-control" %>
+    </div>
+
+    <div class="mb-3 form-check">
+      <%= form.check_box :all_day, class: "form-check-input" %>
+      <%= form.label :all_day, "終日", class: "form-check-label" %>
+    </div>
+
+    <%= form.submit "登録する", class: "btn btn-primary" %>
+    <%= link_to "一覧に戻る", posts_path, class: "btn btn-outline-secondary" %>
   <% end %>
-  
-  <%= form.label :title, "タイトル" %>
-  <%= form.text_field :title %>
-
-  <%= form.label :body, "スケジュールメモ" %>
-  <%= form.text_area :body %>
-
-  <%= form.label :start_date, "開始日" %>
-  <%= form.date_field :start_date %>
-
-  <%= form.label :end_date, "終了日" %>
-  <%= form.date_field :end_date %>
-
-  <%= form.label :all_day, "終日" %>
-  <%= form.check_box :all_day %>
-
-  <%= form.submit "登録する" %>
-<% end %>
+</div>

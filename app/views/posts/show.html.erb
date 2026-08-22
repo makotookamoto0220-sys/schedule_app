@@ -1,11 +1,31 @@
-<h1>予定の詳細</h1>
+<div class="container mt-4">
+  <h1 class="mb-3">予定の詳細</h1>
 
-<p>タイトル : <%= @post.title %></p>
-<p>開始日 : <%= @post.start_date %></p>
-<p>終了日 : <%= @post.end_date %></p>
-<p>終日 : <%= @post.all_day %></p>
-<p>スケジュールメモ : <%= @post.body %></p>
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <th style="width: 30%;">タイトル</th>
+        <td><%= @post.title %></td>
+      </tr>
+      <tr>
+        <th>開始日</th>
+        <td><%= @post.start_date.strftime("%Y/%m/%d") %></td>
+      </tr>
+      <tr>
+        <th>終了日</th>
+        <td><%= @post.end_date.strftime("%Y/%m/%d") %></td>
+      </tr>
+      <tr>
+        <th>終日</th>
+        <td><%= @post.all_day ? "○" : "" %></td>
+      </tr>
+      <tr>
+        <th>スケジュールメモ</th>
+        <td><%= @post.body %></td>
+      </tr>
+    </tbody>
+  </table>
 
-<%= link_to "一覧に戻る",posts_path %>
-
-
+  <%= link_to "編集", edit_post_path(@post), class: "btn btn-outline-success" %>
+  <%= link_to "一覧に戻る", posts_path, class: "btn btn-outline-secondary" %>
+</div>
