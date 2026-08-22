@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
   def index
     @posts = Post.all
   end
@@ -21,7 +20,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
-  
+
 
   def edit
     @post = Post.find(params[:id])
@@ -34,7 +33,6 @@ class PostsController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
-
   end
 
   def destroy
@@ -48,5 +46,4 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :body, :start_date, :end_date, :all_day)
   end
-
 end

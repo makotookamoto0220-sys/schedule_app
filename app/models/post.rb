@@ -1,8 +1,8 @@
 class Post < ApplicationRecord
-  validates :title,presence: true, length: {maximum:20}
+  validates :title, presence: true, length: { maximum: 20 }
   validates :start_date, presence: true
   validates :end_date, presence: true
-  validates :body,length: {maximum:500}
+  validates :body, length: { maximum: 500 }
 
   validate :end_date_after_start_date
 
