@@ -1,0 +1,49 @@
+<% if @post.errors.any? %>
+  <div class="alert alert-danger">
+    <ul class="mb-0">
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="mb-3">
+  <%= form.label :title, "タイトル", class: "form-label" %>
+  <%= form.text_field :title, class: "form-control" %>
+  <% if @post.errors[:title].any? %>
+    <div class="text-danger"><%= Post.human_attribute_name(:title) %><%= @post.errors[:title].first %></div>
+  <% end %>
+</div>
+
+<div class="mb-3">
+  <%= form.label :body, "スケジュールメモ", class: "form-label" %>
+  <%= form.text_area :body, class: "form-control" %>
+  <% if @post.errors[:body].any? %>
+    <div class="text-danger"><%= Post.human_attribute_name(:body) %><%= @post.errors[:body].first %></div>
+  <% end %>
+</div>
+
+<div class="mb-3">
+  <%= form.label :start_date, "開始日", class: "form-label" %>
+  <%= form.date_field :start_date, class: "form-control" %>
+  <% if @post.errors[:start_date].any? %>
+    <div class="text-danger"><%= Post.human_attribute_name(:start_date) %><%= @post.errors[:start_date].first %></div>
+  <% end %>
+</div>
+
+<div class="mb-3">
+  <%= form.label :end_date, "終了日", class: "form-label" %>
+  <%= form.date_field :end_date, class: "form-control" %>
+  <% if @post.errors[:end_date].any? %>
+    <div class="text-danger"><%= Post.human_attribute_name(:end_date) %><%= @post.errors[:end_date].first %></div>
+  <% end %>
+</div>
+
+<div class="mb-3 form-check">
+  <%= form.check_box :all_day, class: "form-check-input" %>
+  <%= form.label :all_day, "終日", class: "form-check-label" %>
+  <% if @post.errors[:all_day].any? %>
+    <div class="text-danger"><%= Post.human_attribute_name(:all_day) %><%= @post.errors[:all_day].first %></div>
+  <% end %>
+</div>

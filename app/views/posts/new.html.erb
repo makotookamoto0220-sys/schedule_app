@@ -1,0 +1,9 @@
+<div class="container mt-4">
+  <h1 class="mb-3">予定の新規追加</h1>
+
+  <%= form_with model: @post do |form| %>
+    <%= render "form", form: form %>
+    <%= form.submit "登録する", class: "btn btn-primary" %>
+    <%= link_to "一覧に戻る", posts_path, class: "btn btn-outline-secondary" %>
+  <% end %>
+</div>
