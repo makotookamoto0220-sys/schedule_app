@@ -2,42 +2,8 @@
   <h1 class="mb-3">予定の編集</h1>
 
   <%= form_with model: @post do |form| %>
-
-    <% if @post.errors.any? %>
-      <div class="alert alert-danger">
-        <ul class="mb-0">
-          <% @post.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <div class="mb-3">
-      <%= form.label :title, "タイトル", class: "form-label" %>
-      <%= form.text_field :title, class: "form-control" %>
-    </div>
-
-    <div class="mb-3">
-      <%= form.label :body, "スケジュールメモ", class: "form-label" %>
-      <%= form.text_area :body, class: "form-control" %>
-    </div>
-
-    <div class="mb-3">
-      <%= form.label :start_date, "開始日", class: "form-label" %>
-      <%= form.date_field :start_date, class: "form-control" %>
-    </div>
-
-    <div class="mb-3">
-      <%= form.label :end_date, "終了日", class: "form-label" %>
-      <%= form.date_field :end_date, class: "form-control" %>
-    </div>
-
-    <div class="mb-3 form-check">
-      <%= form.check_box :all_day, class: "form-check-input" %>
-      <%= form.label :all_day, "終日", class: "form-check-label" %>
-    </div>
-        <%= form.submit "更新する", class: "btn btn-primary" %>
+    <%= render "form", form: form %>
+    <%= form.submit "更新する", class: "btn btn-primary" %>
     <%= link_to "一覧に戻る", posts_path, class: "btn btn-outline-secondary" %>
   <% end %>
 </div>
